@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# from odoo import models, fields, api
+from odoo import models, fields, api
 
 
 # class proyecto(models.Model):
@@ -16,3 +16,22 @@
 #     def _value_pc(self):
 #         for record in self:
 #             record.value2 = float(record.value) / 100
+
+class articulo(models.Model):
+	_name = 'proyecto.articulo'
+	_description = 'Articulo'
+
+	nombre = fields.Char()
+	descripcion = fields.Char()
+	precio = fields.Integer()
+
+	fotos = fields.One2many('proyecto.foto', 'articulo', string='Fotos')
+
+
+
+class foto(models.Model):
+	_name = 'proyecto.foto'
+	_description = 'Foto de un articulo'
+
+	foto = fields.Image()
+	articulo = fields.Many2one("proyecto.articulo", string='articulo', ondelete='restrict')

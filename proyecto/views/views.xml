@@ -16,13 +16,19 @@
 -->
 
     <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="proyecto.action_window">
-      <field name="name">proyecto window</field>
-      <field name="res_model">proyecto.proyecto</field>
+
+    <record model="ir.actions.act_window" id="proyecto.action_articulos_window">
+      <field name="name">Articulos</field>
+      <field name="res_model">proyecto.articulo</field>
       <field name="view_mode">tree,form</field>
     </record>
--->
+
+    <record model="ir.actions.act_window" id="proyecto.action_fotos_articulos_window">
+      <field name="name">Fotos de Articulos</field>
+      <field name="res_model">proyecto.foto</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
 
     <!-- server action to the one above -->
 <!--
@@ -41,20 +47,21 @@
 -->
 
     <!-- Top menu item -->
-<!--
-    <menuitem name="proyecto" id="proyecto.menu_root"/>
--->
+
+    <menuitem name="SiamrroPop" id="proyecto.menu_root"/>
+
     <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="proyecto.menu_1" parent="proyecto.menu_root"/>
-    <menuitem name="Menu 2" id="proyecto.menu_2" parent="proyecto.menu_root"/>
--->
+
+    <menuitem name="App" id="proyecto.menu_principal" parent="proyecto.menu_root"/>
+
     <!-- actions -->
-<!--
-    <menuitem name="List" id="proyecto.menu_1_list" parent="proyecto.menu_1"
-              action="proyecto.action_window"/>
-    <menuitem name="Server to list" id="proyecto" parent="proyecto.menu_2"
-              action="proyecto.action_server"/>
--->
+
+    <menuitem name="Articulos" id="proyecto.menu_articulos_list" parent="proyecto.menu_principal"
+              action="proyecto.action_articulos_window"/>
+
+    <menuitem name="Fotos Articulos" id="proyecto.menu_fotos_articulos_list" parent="proyecto.menu_principal"
+              action="proyecto.action_fotos_articulos_window"/>
+
+
   </data>
 </odoo>

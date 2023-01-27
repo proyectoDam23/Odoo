@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_proyecto_proyecto,proyecto.proyecto,model_proyecto_proyecto,base.group_user,1,1,1,1
+access_proyecto_articulo,proyecto.articulo,model_proyecto_articulo,base.group_user,1,1,1,1
+access_proyecto_foto,proyecto.foto,model_proyecto_foto,base.group_user,1,1,1,1
