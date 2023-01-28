@@ -17,6 +17,18 @@ from odoo import models, fields, api
 #         for record in self:
 #             record.value2 = float(record.value) / 100
 
+class usuario(models.Model):
+    _name = 'res.partner'
+    _inherit = 'res.partner'
+    _description = 'Usuario de SiamrroPop'
+
+    fecha_nacimiento = fields.Date()
+
+
+
+
+
+
 class articulo(models.Model):
 	_name = 'proyecto.articulo'
 	_description = 'Articulo'

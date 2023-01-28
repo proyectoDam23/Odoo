@@ -17,6 +17,15 @@
 
     <!-- actions opening views on models -->
 
+    <record model="ir.actions.act_window" id="proyecto.action_usuarios_window">
+      <field name="name">Usuarios</field>
+      <field name="res_model">res.partner</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('proyecto.usuario_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('proyecto.usuario_form')}),]" />
+    </record>
+
     <record model="ir.actions.act_window" id="proyecto.action_articulos_window">
       <field name="name">Articulos</field>
       <field name="res_model">proyecto.articulo</field>
@@ -61,6 +70,8 @@
     <menuitem name="App" id="proyecto.menu_principal" parent="proyecto.menu_root"/>
 
     <!-- actions -->
+    <menuitem name="Usuarios" id="proyecto.menu_usuarios_list" parent="proyecto.menu_principal"
+              action="proyecto.action_usuarios_window"/>
 
     <menuitem name="Articulos" id="proyecto.menu_articulos_list" parent="proyecto.menu_principal"
               action="proyecto.action_articulos_window"/>
