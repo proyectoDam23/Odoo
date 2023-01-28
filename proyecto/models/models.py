@@ -18,15 +18,13 @@ from odoo import models, fields, api
 #             record.value2 = float(record.value) / 100
 
 class usuario(models.Model):
-    _name = 'res.partner'
-    _inherit = 'res.partner'
-    _description = 'Usuario de SiamrroPop'
+	_name = 'res.partner'
+	_inherit = 'res.partner'
+	_description = 'Usuario de SiamrroPop'
 
-    fecha_nacimiento = fields.Date()
-
-
-
-
+	fecha_nacimiento = fields.Date()
+	articulos_publicados = fields.One2many('proyecto.articulo', 'usuario', string='Articulos Publicados')
+	articulos_comprados = fields.One2many('proyecto.articulo', 'usuario_comprador', string='Articulos Comprados')
 
 
 class articulo(models.Model):
@@ -39,6 +37,9 @@ class articulo(models.Model):
 
 	fotos = fields.One2many('proyecto.foto', 'articulo', string='Fotos')
 	categoria = fields.Many2one("proyecto.categoria", string='Categoria', ondelete='restrict')
+
+	usuario = fields.Many2one("res.partner", string='Usuario', ondelete='restrict')
+	usuario_comprador = fields.Many2one("res.partner", string='Comprador', ondelete='restrict')
 
 
 class foto(models.Model):
