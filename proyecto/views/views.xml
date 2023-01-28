@@ -32,6 +32,12 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <record model="ir.actions.act_window" id="proyecto.action_valoraciones_window">
+      <field name="name">Valoraciones</field>
+      <field name="res_model">proyecto.valoracion</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
     <record model="ir.actions.act_window" id="proyecto.action_fotos_articulos_window">
       <field name="name">Fotos de Articulos</field>
       <field name="res_model">proyecto.foto</field>
@@ -82,6 +88,8 @@
     <menuitem name="Categoria Articulos" id="proyecto.menu_categoria_list" parent="proyecto.menu_principal"
               action="proyecto.action_categoria_window"/>
 
+    <menuitem name="Valoraciones" id="proyecto.menu_valoraciones_list" parent="proyecto.menu_principal"
+              action="proyecto.action_valoraciones_window"/>
 
   </data>
 </odoo>

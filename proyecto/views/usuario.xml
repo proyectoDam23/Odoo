@@ -7,7 +7,7 @@
       <field name="arch" type="xml">
         <tree >
           <field name="name"/>
-		<field name="email"/>
+		      <field name="email"/>
         </tree>
       </field>
     </record>
@@ -28,6 +28,7 @@
 						              <field name="phone" widget="phone"/>
 						              <field name="articulos_publicados"/>
 						              <field name="articulos_comprados"/>
+                          <field name="valoraciones"/>
 
                           <div class="o_address_format">
                                 <field name="street" placeholder="Calle..." class="o_address_street" />

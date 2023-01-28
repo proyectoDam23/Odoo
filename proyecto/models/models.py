@@ -26,6 +26,8 @@ class usuario(models.Model):
 	articulos_publicados = fields.One2many('proyecto.articulo', 'usuario', string='Articulos Publicados')
 	articulos_comprados = fields.One2many('proyecto.articulo', 'usuario_comprador', string='Articulos Comprados')
 
+	valoraciones = fields.One2many('proyecto.valoracion', 'usuario', string='Valoraciones')
+
 
 class articulo(models.Model):
 	_name = 'proyecto.articulo'
@@ -59,3 +61,10 @@ class categoria(models.Model):
 
 	articulo = fields.One2many('proyecto.articulo', 'categoria', string='Articulos')
 
+class valoracion(models.Model):
+	_name = 'proyecto.valoracion'
+	_description = 'Valoracion de un usuario'
+
+	valoracion = fields.Selection([('1', 'Muy Baja'),('2', 'Baja'),('3', 'Media'),('4', 'Alta'),('5', 'Muy Alta')])
+	comentario = fields.Text()
+	usuario = fields.Many2one("res.partner", string='Usuario', ondelete='restrict')
