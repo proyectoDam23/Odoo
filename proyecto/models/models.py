@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
-
+from odoo.exceptions import ValidationError
 
 # class proyecto(models.Model):
 #     _name = 'proyecto.proyecto'
@@ -35,13 +35,27 @@ class articulo(models.Model):
 
 	name = fields.Char()
 	descripcion = fields.Char()
-	precio = fields.Integer()
+	precio = fields.Float()
 
 	fotos = fields.One2many('proyecto.foto', 'articulo', string='Fotos')
 	categoria = fields.Many2one("proyecto.categoria", string='Categoria', ondelete='restrict')
 
-	usuario = fields.Many2one("res.partner", string='Usuario', ondelete='restrict')
+	usuario = fields.Many2one("res.partner", string='Usuario', ondelete='restrict', required=True)
 	usuario_comprador = fields.Many2one("res.partner", string='Comprador', ondelete='restrict')
+
+
+	@api.constrains('precio')
+	def _precio_constraint(self):
+		for record in self:
+			print(record.precio)
+			if record.precio < 0.1:
+				raise ValidationError("El articulo debe de tener un precio.")
+
+	@api.constrains('fotos')
+	def _fotos_constraint(self):
+       	 for record in self:
+            if len(record.fotos)<=0:
+                raise ValidationError("El articulo debe de tener una foto.")
 
 
 class foto(models.Model):
@@ -67,4 +81,4 @@ class valoracion(models.Model):
 
 	valoracion = fields.Selection([('1', 'Muy Baja'),('2', 'Baja'),('3', 'Media'),('4', 'Alta'),('5', 'Muy Alta')])
 	comentario = fields.Text()
-	usuario = fields.Many2one("res.partner", string='Usuario', ondelete='restrict')
+	usuario = fields.Many2one("res.partner", string='Usuario', ondelete='restrict', required =True)
