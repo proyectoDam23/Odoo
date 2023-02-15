@@ -1,0 +1,40 @@
+<odoo>
+  <data>
+	
+	<record model="ir.ui.view" id="proyecto.valoracion_tree">
+      <field name="name">Valoracion</field>
+      <field name="model">proyecto.valoracion</field>
+      <field name="arch" type="xml">
+        <tree >
+          
+          <field name="valoracion" widget="priority"/>
+          <field name="comentario"/>
+          <field name="usuario"/>
+        </tree>
+      </field>
+    </record>
+
+
+        <record id="proyecto.valoracion_form" model="ir.ui.view">
+        <field name="name">Valoracion</field>
+        <field name="model">proyecto.valoracion</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                  <group> 
+                    
+                    <field name="valoracion" widget="priority"/>
+                  
+                    <field name="comentario"/>
+                    <field name="usuario"/>
+                    
+                    
+                  </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+	
+
+  </data>
+</odoo>

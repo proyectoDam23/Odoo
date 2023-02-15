@@ -1,0 +1,33 @@
+<odoo>
+  <data>
+	
+	<record model="ir.ui.view" id="proyecto.foto_tree">
+      <field name="name">Foto Articulo</field>
+      <field name="model">proyecto.foto</field>
+      <field name="arch" type="xml">
+        <tree >         
+          <field name="articulo"/> 
+          <field name="foto" widget="image" options="{'size': [80, 80]}"/>
+        </tree>
+      </field>
+    </record>
+
+
+        <record id="proyecto.foto_form" model="ir.ui.view">
+        <field name="name">Foto Articulo</field>
+        <field name="model">proyecto.foto</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                  <group>                     
+                    <field name="foto" widget="image" options="{'size': [150, 150]}"/>
+                    <field name="articulo"/>                                      
+                  </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+	
+
+  </data>
+</odoo>
