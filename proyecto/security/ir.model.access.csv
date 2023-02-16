@@ -3,3 +3,4 @@ access_proyecto_articulo,proyecto.articulo,model_proyecto_articulo,base.group_us
 access_proyecto_foto,proyecto.foto,model_proyecto_foto,base.group_user,1,1,1,1
 access_proyecto_categoria,proyecto.categoria,model_proyecto_categoria,base.group_user,1,1,1,1
 access_proyecto_valoracion,proyecto.valoracion,model_proyecto_valoracion,base.group_user,1,1,1,1
+access_proyecto_crear_articulo_wizard,proyecto.crear_articulo_wizard,model_proyecto_crear_articulo_wizard,base.group_user,1,1,1,1
