@@ -20,7 +20,7 @@
     <record model="ir.actions.act_window" id="proyecto.action_usuarios_window">
       <field name="name">Usuarios</field>
       <field name="res_model">res.partner</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,kanban</field>
       <field name="view_ids" eval="[(5, 0, 0),
             (0, 0, {'view_mode': 'tree', 'view_id': ref('proyecto.usuario_tree')}),
             (0, 0, {'view_mode': 'form', 'view_id': ref('proyecto.usuario_form')}),]" />
@@ -36,19 +36,19 @@
     <record model="ir.actions.act_window" id="proyecto.action_valoraciones_window">
       <field name="name">Valoraciones</field>
       <field name="res_model">proyecto.valoracion</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,kanban</field>
     </record>
 
     <record model="ir.actions.act_window" id="proyecto.action_fotos_articulos_window">
       <field name="name">Fotos de Articulos</field>
       <field name="res_model">proyecto.foto</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,kanban</field>
     </record>
 
     <record model="ir.actions.act_window" id="proyecto.action_categoria_window">
       <field name="name">Categoria de los Articulos</field>
       <field name="res_model">proyecto.categoria</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,kanban</field>
     </record>
 
 

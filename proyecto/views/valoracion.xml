@@ -36,5 +36,44 @@
     </record>
 	
 
+    
+ <record id="proyecto.valoracion_kanban" model="ir.ui.view">
+          <field name="name">Valoracion Kanban</field>
+          <field name="model">proyecto.valoracion</field>
+          <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="valoracion" widget="priority"/>
+                <field name="comentario"/>
+                <field name="usuario"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <strong></strong>
+                                        <div name="tags"/>
+                                          <ul> 
+                                              <li>                                            
+                                              <field name="valoracion" widget="priority"/>
+                                              </li>
+                                              <li>                                            
+                                              <field name="usuario"/>
+                                              </li> 
+                                              <li>                                            
+                                              <field name="comentario"/>
+                                              </li>
+                                          </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+          </field>
+        </record>
+
   </data>
 </odoo>
