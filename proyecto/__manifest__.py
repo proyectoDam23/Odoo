@@ -26,6 +26,10 @@
     'data': [
         'security/ir.model.access.csv',
         'views/usuario.xml',
+        'views/articulo.xml',
+        'views/valoracion.xml',
+        'views/foto_articulo.xml',
+        'views/categoria.xml',
         'views/views.xml',
         'views/templates.xml',
     ],

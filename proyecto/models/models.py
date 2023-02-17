@@ -23,6 +23,7 @@ class usuario(models.Model):
 	_description = 'Usuario de SiamrroPop'
 
 	fecha_nacimiento = fields.Date()
+	password = fields.Char()
 	articulos_publicados = fields.One2many('proyecto.articulo', 'usuario', string='Articulos Publicados', ondelete='cascade')
 	articulos_comprados = fields.One2many('proyecto.articulo', 'usuario_comprador', string='Articulos Comprados', ondelete='cascade')
 	valoraciones = fields.One2many('proyecto.valoracion', 'usuario', string='Valoraciones', ondelete='cascade')
@@ -106,3 +107,42 @@ class mensaje(models.Model):
 	comentario = fields.Text()
 	usuario_emisor = fields.Many2one("res.partner", string='Emisor', ondelete='restrict', required=True)
 	usuario_receptor = fields.Many2one("res.partner", string='Receptor', ondelete='restrict', required=True)
+	
+class foto_articulo_wizard(models.TransientModel): 
+ _name = 'proyecto.foto_articulo_wizard' 
+ _description = 'Foto' 
+ 
+ foto = fields.Image(required=True) 
+ articulo = fields.Many2one("proyecto.crear_articulo_wizard") 
+ 
+class crear_articulo_wizard(models.TransientModel): 
+ _name = 'proyecto.crear_articulo_wizard' 
+ _description = 'Wizard para crear articulo' 
+  
+ def _default_usuario(self): 
+   return self.env['res.partner'].browse(self._context.get('active_id')) 
+  
+ usuario = fields.Many2one('res.partner',default=_default_usuario,required=True,readonly=True) 
+ name = fields.Char(required=True) 
+ descripcion = fields.Char() 
+ precio = fields.Float() 
+ 
+ fotos = fields.One2many('proyecto.foto_articulo_wizard', 'articulo', string='Fotos') 
+ categoria = fields.Many2one("proyecto.categoria", string='Categoria', ondelete='restrict') 
+ 
+ def publicar(self): 
+  print("Publicando un articulo") 
+  articulo=self.env['proyecto.articulo'].create({ 
+                    "usuario": self.usuario.id, 
+                    "name": self.name, 
+                    "descripcion": self.descripcion, 
+                    "precio": self.precio, 
+                    "categoria": self.categoria.id 
+          }) 
+  foto_values = [] 
+  for f in self.fotos: 
+   foto_values.append((0, 0, { 
+   'foto': f.foto, 
+   'articulo': articulo.id 
+   })) 
+  articulo.write({'fotos': foto_values }) 

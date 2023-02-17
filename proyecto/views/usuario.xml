@@ -1,5 +1,65 @@
 <odoo>
   <data>
+        <record model="ir.ui.view" id="action_crear_articulo_wizardview">
+            <field name="name">proyecto.crear_articulo_wizard</field>
+            <field name="model">proyecto.crear_articulo_wizard</field>
+            <field name="arch" type="xml">
+                <form string="Select fortress">
+                    <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="precio"/>
+                    </group>
+                    <group>
+                        <field name="usuario"/>
+                        <field name="categoria"/>
+                    </group>
+                        <separator string="Descripción"/>
+                        <field name="descripcion"/>
+                       
+                        <separator string="Foto de los articulos"/>
+                        <field name="fotos"/>
+                        
+                    </group>
+                    <footer>
+                        <button name="publicar" type="object"
+                                string="Publicar" class="oe_highlight"/>
+                        or
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="action_foto_articulo_wizardview">
+            <field name="name">proyecto.foto_articulo_wizard</field>
+            <field name="model">proyecto.foto_articulo_wizard</field>
+            <field name="arch" type="xml">
+                <form string="Select fortress">
+                    <group>
+                    <field name="foto" widget="image" options="{'size': [100, 100]}"/>
+                    </group>
+                    </form>
+            </field>
+        </record>
+
+    <record model="ir.ui.view" id="action_foto_articulo_wizardviewtree">
+      <field name="name">proyecto.foto_articulo_wizard</field>
+      <field name="model">proyecto.foto_articulo_wizard</field>
+      <field name="arch" type="xml">
+        <tree >         
+          <field name="foto" widget="image" options="{'size': [80, 80]}"/>
+        </tree>
+      </field>
+    </record>
+  
+    <record id="proyecto.crear_articulo_action" model="ir.actions.act_window">
+          <field name="name">Crear Articulo</field>
+          <field name="res_model">proyecto.crear_articulo_wizard</field>
+          <field name="view_mode">form</field>
+          <field name="target">new</field>
+    </record>
 	
 	<record model="ir.ui.view" id="proyecto.usuario_tree">
       <field name="name">Usuarios</field>
@@ -29,6 +89,13 @@
                           <field name="fecha_nacimiento"/>
                           <field name="email" widget="email"/>
                           <field name="phone" widget="phone"/> 
+
+                          <button name="%(proyecto.crear_articulo_action)d"
+                          type="action"
+                          string="Publicar Articulo"
+                          class="btn btn-primary"
+                          ></button>
+
                      </group> 
                     <group string="Dirección">                             
                             <div class="o_address_format">
@@ -78,10 +145,7 @@
         </field>
     </record>
 
-
-
-
- <record id="proyecto.usuario_kanban" model="ir.ui.view">
+	<record id="proyecto.usuario_kanban" model="ir.ui.view">
           <field name="name">Usuario Kanban</field>
           <field name="model">res.partner</field>
           <field name="arch" type="xml">
@@ -118,8 +182,6 @@
             </kanban>
           </field>
         </record>
-
-
 
   </data>
 </odoo>
