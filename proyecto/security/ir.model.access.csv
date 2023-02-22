@@ -5,3 +5,4 @@ access_proyecto_categoria,proyecto.categoria,model_proyecto_categoria,base.group
 access_proyecto_valoracion,proyecto.valoracion,model_proyecto_valoracion,base.group_user,1,1,1,1
 access_proyecto_crear_articulo_wizard,proyecto.crear_articulo_wizard,model_proyecto_crear_articulo_wizard,base.group_user,1,1,1,1
 access_proyecto_foto_articulo_wizard,proyecto.foto_articulo_wizard,model_proyecto_foto_articulo_wizard,base.group_user,1,1,1,1
+access_proyecto_mensaje,proyecto.mensaje,model_proyecto_mensaje,base.group_user,1,1,1,1

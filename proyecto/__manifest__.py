@@ -26,6 +26,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/usuario.xml',
+        'views/mensaje.xml',
         'views/articulo.xml',
         'views/valoracion.xml',
         'views/foto_articulo.xml',

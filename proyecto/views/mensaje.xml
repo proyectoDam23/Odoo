@@ -1,0 +1,33 @@
+<odoo>
+  <data>
+	
+	<record model="ir.ui.view" id="proyecto.mensaje_tree">
+      <field name="name">Mensajes</field>
+      <field name="model">proyecto.mensaje</field>
+      <field name="arch" type="xml">
+        <tree >         
+          <field name="comentario"/>
+          
+        </tree>
+      </field>
+    </record>
+
+        <record id="proyecto.mensaje_form" model="ir.ui.view">
+        <field name="name">Mensajes</field>
+        <field name="model">proyecto.mensaje</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                  <group>                     
+                      <field name="comentario"/>
+                      <field name="usuario_emisor"/>
+                      <field name="usuario_receptior"/>
+                                                   
+                  </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+  </data>
+</odoo>

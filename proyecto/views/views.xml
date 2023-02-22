@@ -51,6 +51,12 @@
       <field name="view_mode">tree,form,kanban</field>
     </record>
 
+    <record model="ir.actions.act_window" id="proyecto.action_mensaje_window">
+      <field name="name">Mensajes</field>
+      <field name="res_model">proyecto.mensaje</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
 
     <!-- server action to the one above -->
 <!--
@@ -91,6 +97,9 @@
 
     <menuitem name="Valoraciones" id="proyecto.menu_valoraciones_list" parent="proyecto.menu_principal"
               action="proyecto.action_valoraciones_window"/>
+
+    <menuitem name="Mensajes" id="proyecto.menu_mensaje_list" parent="proyecto.menu_principal"
+              action="proyecto.action_mensaje_window"/>
 
   </data>
 </odoo>
