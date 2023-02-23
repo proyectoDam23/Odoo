@@ -21,7 +21,7 @@
                   <group>                     
                       <field name="comentario"/>
                       <field name="usuario_emisor"/>
-                      <field name="usuario_receptior"/>
+                      <field name="usuario_receptor"/>
                                                    
                   </group>
                 </sheet>
